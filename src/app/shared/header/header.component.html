@@ -1,0 +1,52 @@
+<p-toolbar class="app-header">
+  <ng-template pTemplate="start">
+    <div class="header-left">
+      <img src="https://cdn.prod.website-files.com/67e9abca114b7db95b2e01ae/6849cd8efba1dcdf6fb84bc3_cropped-cropped-logo-1%20(1).png" 
+           alt="Logo" 
+           class="logo">
+      <span class="app-title">{{ 'user.userManagement' | translate }}</span>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="end">
+    <div class="header-right">
+      <!-- Impersonation Banner -->
+      <div *ngIf="isImpersonating" class="impersonation-banner">
+        <i class="pi pi-eye"></i>
+        <span>{{ 'user.viewingAs' | translate }} {{ getUserFullName() }}</span>
+        <p-button 
+          [label]="'user.stop' | translate" 
+          icon="pi pi-times"
+          severity="warn"
+          size="small"
+          (onClick)="stopImpersonation()"
+          [text]="true">
+        </p-button>
+      </div>
+
+      <!-- User Info -->
+      <div class="user-info">
+        <p-avatar 
+          [label]="getUserInitials()" 
+          shape="circle" 
+          [style]="{'background-color': '#3b82f6', 'color': '#ffffff'}"
+          size="normal">
+        </p-avatar>
+        <div class="user-details">
+          <span class="user-name">{{ getUserFullName() }}</span>
+          <span class="user-role">{{ ('role.' + currentUser?.role) | translate }}</span>
+        </div>
+      </div>
+
+      <!-- Logout Button -->
+      <p-button 
+        icon="pi pi-sign-out" 
+        [label]="'auth.logout' | translate"
+        severity="secondary"
+        [outlined]="true"
+        (onClick)="logout()">
+      </p-button>
+    </div>
+  </ng-template>
+</p-toolbar>
+

@@ -1,0 +1,146 @@
+{
+  "common": {
+    "appTitle": "نظام إدارة المستخدمين",
+    "welcome": "مرحباً",
+    "loading": "جاري التحميل...",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "add": "إضافة",
+    "search": "بحث",
+    "filter": "تصفية",
+    "reset": "إعادة تعيين",
+    "close": "إغلاق",
+    "confirm": "تأكيد",
+    "yes": "نعم",
+    "no": "لا",
+    "all": "الكل",
+    "actions": "الإجراءات"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "username": "اسم المستخدم",
+    "password": "كلمة المرور",
+    "signIn": "تسجيل الدخول",
+    "signOut": "تسجيل الخروج",
+    "welcomeBack": "مرحباً بعودتك",
+    "loginSubtitle": "سجل الدخول للوصول إلى حسابك",
+    "demoCredentials": "بيانات تجريبية",
+    "quickLogin": "دخول سريع",
+    "enterUsername": "أدخل اسم المستخدم",
+    "enterPassword": "أدخل كلمة المرور",
+    "loginAs": "تسجيل الدخول كـ"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "users": "المستخدمون",
+    "profile": "الملف الشخصي",
+    "admin": "مدير",
+    "user": "مستخدم"
+  },
+  "user": {
+    "users": "المستخدمون",
+    "userManagement": "إدارة المستخدمين",
+    "addUser": "إضافة مستخدم",
+    "editUser": "تعديل مستخدم",
+    "deleteUser": "حذف مستخدم",
+    "userList": "قائمة المستخدمين",
+    "fullName": "الاسم الكامل",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "email": "البريد الإلكتروني",
+    "username": "اسم المستخدم",
+    "phone": "الهاتف",
+    "role": "الدور",
+    "status": "الحالة",
+    "department": "القسم",
+    "address": "العنوان",
+    "dateOfBirth": "تاريخ الميلاد",
+    "bio": "السيرة الذاتية",
+    "joinDate": "تاريخ الانضمام",
+    "lastActive": "آخر نشاط",
+    "impersonate": "تقمص الشخصية",
+    "stopImpersonation": "إيقاف التقمص",
+    "stop": "إيقاف",
+    "viewingAs": "مشاهدة كـ",
+    "totalUsers": "إجمالي المستخدمين",
+    "activeUsers": "المستخدمون النشطون",
+    "inactiveUsers": "المستخدمون غير النشطين"
+  },
+  "role": {
+    "admin": "مدير",
+    "user": "مستخدم",
+    "allRoles": "جميع الأدوار"
+  },
+  "status": {
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "allStatuses": "جميع الحالات"
+  },
+  "department": {
+    "allDepartments": "جميع الأقسام",
+    "engineering": "الهندسة",
+    "marketing": "التسويق",
+    "sales": "المبيعات",
+    "hr": "الموارد البشرية",
+    "finance": "المالية",
+    "it": "تقنية المعلومات",
+    "operations": "العمليات"
+  },
+  "form": {
+    "createUser": "إنشاء مستخدم",
+    "updateUser": "تحديث مستخدم",
+    "addNewUser": "إضافة مستخدم جديد",
+    "editUserTitle": "تعديل مستخدم",
+    "enterFullName": "أدخل الاسم الكامل",
+    "enterEmail": "user@example.com",
+    "enterUsername": "أدخل اسم المستخدم",
+    "enterPhone": "٩٦٦ ٥٥٥ ١٢٣٤٥٦٧+",
+    "selectRole": "اختر الدور",
+    "selectStatus": "اختر الحالة",
+    "selectDepartment": "اختر القسم",
+    "selectDate": "اختر التاريخ",
+    "enterAddress": "أدخل العنوان",
+    "enterBio": "أدخل السيرة الذاتية (500 حرف كحد أقصى)"
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "email": "عنوان البريد الإلكتروني غير صالح",
+    "minLength": "الحد الأدنى للطول هو",
+    "maxLength": "الحد الأقصى للطول هو",
+    "pattern": "تنسيق غير صالح"
+  },
+  "message": {
+    "success": "نجح",
+    "error": "خطأ",
+    "userCreated": "تم إنشاء المستخدم بنجاح",
+    "userUpdated": "تم تحديث المستخدم بنجاح",
+    "userDeleted": "تم حذف المستخدم بنجاح",
+    "deleteConfirm": "هل أنت متأكد من رغبتك في حذف",
+    "undo": "تراجع",
+    "impersonating": "تقمص الشخصية",
+    "nowViewingAs": "المشاهدة الآن كـ"
+  },
+  "dashboard": {
+    "dashboard": "لوحة التحكم",
+    "analytics": "التحليلات",
+    "overview": "نظرة عامة",
+    "statistics": "الإحصائيات",
+    "recentRegistrations": "التسجيلات الأخيرة",
+    "usersByDepartment": "المستخدمون حسب القسم",
+    "usersByRole": "المستخدمون حسب الدور",
+    "noData": "لا توجد بيانات متاحة"
+  },
+  "table": {
+    "globalSearch": "البحث عن المستخدمين...",
+    "filterByRole": "تصفية حسب الدور",
+    "filterByStatus": "تصفية حسب الحالة",
+    "filterByDepartment": "تصفية حسب القسم",
+    "noRecordsFound": "لم يتم العثور على سجلات",
+    "showing": "عرض",
+    "rowsPerPage": "صفوف لكل صفحة"
+  }
+}
+

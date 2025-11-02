@@ -1,0 +1,96 @@
+<app-header></app-header>
+
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Admin Dashboard</h1>
+    <p class="subtitle">Overview of user management system</p>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-state">
+    <p-skeleton height="150px" styleClass="mb-3"></p-skeleton>
+    <div class="grid">
+      <div class="col-12 md:col-6 lg:col-3">
+        <p-skeleton height="120px"></p-skeleton>
+      </div>
+      <div class="col-12 md:col-6 lg:col-3">
+        <p-skeleton height="120px"></p-skeleton>
+      </div>
+      <div class="col-12 md:col-6 lg:col-3">
+        <p-skeleton height="120px"></p-skeleton>
+      </div>
+      <div class="col-12 md:col-6 lg:col-3">
+        <p-skeleton height="120px"></p-skeleton>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Content -->
+  <div *ngIf="!loading && statistics" class="dashboard-content fade-in">
+    
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+      <!-- Total Users Card -->
+      <p-card class="stat-card stat-card-primary">
+        <div class="stat-content">
+          <div class="stat-icon">
+            <i class="pi pi-users"></i>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Total Users</span>
+            <span class="stat-value">{{ statistics.totalUsers }}</span>
+          </div>
+        </div>
+      </p-card>
+
+      <!-- Active Users Card -->
+      <p-card class="stat-card stat-card-success">
+        <div class="stat-content">
+          <div class="stat-icon">
+            <i class="pi pi-check-circle"></i>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Active Users</span>
+            <span class="stat-value">{{ statistics.activeUsers }}</span>
+          </div>
+        </div>
+      </p-card>
+
+      <!-- Inactive Users Card -->
+      <p-card class="stat-card stat-card-warning">
+        <div class="stat-content">
+          <div class="stat-icon">
+            <i class="pi pi-times-circle"></i>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Inactive Users</span>
+            <span class="stat-value">{{ statistics.inactiveUsers }}</span>
+          </div>
+        </div>
+      </p-card>
+
+      <!-- Departments Card -->
+      <p-card class="stat-card stat-card-info">
+        <div class="stat-content">
+          <div class="stat-icon">
+            <i class="pi pi-building"></i>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Departments</span>
+            <span class="stat-value">{{ Object.keys(statistics.usersByDepartment).length }}</span>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="!loading && !statistics" class="error-state">
+    <i class="pi pi-exclamation-triangle"></i>
+    <p>Unable to load dashboard statistics</p>
+    <p-button label="Retry" icon="pi pi-refresh" (onClick)="ngOnInit()"></p-button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+

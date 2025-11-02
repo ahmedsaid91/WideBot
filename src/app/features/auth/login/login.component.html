@@ -1,0 +1,103 @@
+<div class="login-container">
+  <div class="login-wrapper">
+    <!-- Logo/Header -->
+    <div class="login-header">
+      <img src="https://cdn.prod.website-files.com/67e9abca114b7db95b2e01ae/6849cd8efba1dcdf6fb84bc3_cropped-cropped-logo-1%20(1).png" 
+           alt="Widebot Logo" 
+           class="logo">
+      <h2>{{ 'common.appTitle' | translate }}</h2>
+      <p class="subtitle">{{ 'auth.loginSubtitle' | translate }}</p>
+    </div>
+
+    <!-- Login Card -->
+    <p-card class="login-card">
+      <!-- Error Message -->
+      <p-message 
+        *ngIf="errorMessage" 
+        severity="error" 
+        [text]="errorMessage"
+        styleClass="w-full mb-3">
+      </p-message>
+
+      <!-- Login Form -->
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <!-- Username Field -->
+        <div class="field">
+          <label for="username" class="block mb-2">{{ 'auth.username' | translate }}</label>
+          <input 
+            pInputText 
+            id="username" 
+            formControlName="username"
+            [placeholder]="'auth.enterUsername' | translate"
+            class="w-full"
+            [class.p-invalid]="hasFieldError('username')" />
+          <small *ngIf="hasFieldError('username')" class="p-error">
+            {{ getFieldError('username') }}
+          </small>
+        </div>
+
+        <!-- Password Field -->
+        <div class="field">
+          <label for="password" class="block mb-2">{{ 'auth.password' | translate }}</label>
+          <p-password 
+            id="password" 
+            formControlName="password"
+            [placeholder]="'auth.enterPassword' | translate"
+            [toggleMask]="true"
+            [feedback]="false"
+            styleClass="w-full"
+            [inputStyleClass]="hasFieldError('password') ? 'p-invalid w-full' : 'w-full'">
+          </p-password>
+          <small *ngIf="hasFieldError('password')" class="p-error">
+            {{ getFieldError('password') }}
+          </small>
+        </div>
+
+        <!-- Submit Button -->
+        <p-button 
+          [label]="'auth.signIn' | translate" 
+          icon="pi pi-sign-in"
+          type="submit"
+          [loading]="loading"
+          [disabled]="loading"
+          styleClass="bg-white-alpha-60 border-round-md p-2">
+        </p-button>
+      </form>
+
+      <!-- Demo Credentials Section -->
+      <div class="demo-credentials">
+        <div class="divider">
+          <span>{{ 'auth.demoCredentials' | translate }}</span>
+        </div>
+        
+        <div class="credentials-grid">
+          <div *ngFor="let cred of demoCredentials" class="credential-card">
+            <div class="credential-header">
+              <i class="pi" [ngClass]="cred.role === 'Admin' ? 'pi-shield' : 'pi-user'"></i>
+              <strong>{{ ('role.' + (cred.role === 'Admin' ? 'admin' : 'user')) | translate }}</strong>
+            </div>
+            <div class="credential-details">
+              <span><strong>{{ 'auth.username' | translate }}:</strong> {{ cred.username }}</span>
+              <span><strong>{{ 'auth.password' | translate }}:</strong> {{ cred.password }}</span>
+            </div>
+            <p-button 
+              [label]="('auth.loginAs' | translate) + ' ' + (('role.' + (cred.role === 'Admin' ? 'admin' : 'user')) | translate)" 
+              [outlined]="true"
+              severity="secondary"
+              size="small"
+              (onClick)="quickLogin(cred.role === 'Admin' ? 'admin' : 'user')"
+              [disabled]="loading"
+              styleClass="bg-primary border-round-md p-2 w-full mt-2">
+            </p-button>
+          </div>
+        </div>
+      </div>
+    </p-card>
+
+    <!-- Footer -->
+    <div class="login-footer">
+      <p>&copy; 2024 Widebot. All rights reserved.</p>
+    </div>
+  </div>
+</div>
+

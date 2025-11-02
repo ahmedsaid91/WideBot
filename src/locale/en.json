@@ -1,0 +1,146 @@
+{
+  "common": {
+    "appTitle": "User Management System",
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "close": "Close",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "all": "All",
+    "actions": "Actions"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "username": "Username",
+    "password": "Password",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "welcomeBack": "Welcome Back",
+    "loginSubtitle": "Sign in to access your account",
+    "demoCredentials": "Demo Credentials",
+    "quickLogin": "Quick Login",
+    "enterUsername": "Enter your username",
+    "enterPassword": "Enter your password",
+    "loginAs": "Login as"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "profile": "Profile",
+    "admin": "Admin",
+    "user": "User"
+  },
+  "user": {
+    "users": "Users",
+    "userManagement": "User Management",
+    "addUser": "Add User",
+    "editUser": "Edit User",
+    "deleteUser": "Delete User",
+    "userList": "User List",
+    "fullName": "Full Name",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "username": "Username",
+    "phone": "Phone",
+    "role": "Role",
+    "status": "Status",
+    "department": "Department",
+    "address": "Address",
+    "dateOfBirth": "Date of Birth",
+    "bio": "Bio",
+    "joinDate": "Join Date",
+    "lastActive": "Last Active",
+    "impersonate": "Impersonate",
+    "stopImpersonation": "Stop Impersonation",
+    "stop": "Stop",
+    "viewingAs": "Viewing as",
+    "totalUsers": "Total Users",
+    "activeUsers": "Active Users",
+    "inactiveUsers": "Inactive Users"
+  },
+  "role": {
+    "admin": "Admin",
+    "user": "User",
+    "allRoles": "All Roles"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "allStatuses": "All Statuses"
+  },
+  "department": {
+    "allDepartments": "All Departments",
+    "engineering": "Engineering",
+    "marketing": "Marketing",
+    "sales": "Sales",
+    "hr": "HR",
+    "finance": "Finance",
+    "it": "IT",
+    "operations": "Operations"
+  },
+  "form": {
+    "createUser": "Create User",
+    "updateUser": "Update User",
+    "addNewUser": "Add New User",
+    "editUserTitle": "Edit User",
+    "enterFullName": "Enter full name",
+    "enterEmail": "user@example.com",
+    "enterUsername": "Enter username",
+    "enterPhone": "+1 (555) 123-4567",
+    "selectRole": "Select role",
+    "selectStatus": "Select status",
+    "selectDepartment": "Select department",
+    "selectDate": "Select date",
+    "enterAddress": "Enter address",
+    "enterBio": "Enter bio (max 500 characters)"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Invalid email address",
+    "minLength": "Minimum length is",
+    "maxLength": "Maximum length is",
+    "pattern": "Invalid format"
+  },
+  "message": {
+    "success": "Success",
+    "error": "Error",
+    "userCreated": "User created successfully",
+    "userUpdated": "User updated successfully",
+    "userDeleted": "User deleted successfully",
+    "deleteConfirm": "Are you sure you want to delete",
+    "undo": "Undo",
+    "impersonating": "Impersonating",
+    "nowViewingAs": "Now viewing as"
+  },
+  "dashboard": {
+    "dashboard": "Dashboard",
+    "analytics": "Analytics",
+    "overview": "Overview",
+    "statistics": "Statistics",
+    "recentRegistrations": "Recent Registrations",
+    "usersByDepartment": "Users by Department",
+    "usersByRole": "Users by Role",
+    "noData": "No data available"
+  },
+  "table": {
+    "globalSearch": "Search users...",
+    "filterByRole": "Filter by role",
+    "filterByStatus": "Filter by status",
+    "filterByDepartment": "Filter by department",
+    "noRecordsFound": "No records found",
+    "showing": "Showing",
+    "rowsPerPage": "rows per page"
+  }
+}
+

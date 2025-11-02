@@ -1,0 +1,223 @@
+<div class="user-list-container">
+  <div class="user-list-header">
+    <div class="header-content">
+      <div class="title-section">
+        <h2>User Management</h2>
+        <p class="subtitle">Manage system users and permissions</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filters Section -->
+  <div class="filters-section card">
+    <div class="filters-grid">
+      <!-- Global Search -->
+      <div class="filter-item search-filter">
+        <span class="p-input-icon-left relative w-full">
+          <i class="absolute pi pi-search right-0"></i>
+          <input 
+            pInputText 
+            type="text" 
+            [(ngModel)]="globalSearchTerm"
+            (input)="onGlobalSearch($event)"
+            placeholder="Search by name, email, or username"
+            class="w-full" />
+        </span>
+      </div>
+
+      <!-- Role Filter -->
+      <div class="filter-item">
+        <p-dropdown 
+          [(ngModel)]="selectedRole"
+          [options]="roles"
+          (onChange)="applyFilters()"
+          placeholder="Filter by Role"
+          styleClass="w-full">
+        </p-dropdown>
+      </div>
+
+      <!-- Status Filter -->
+      <div class="filter-item">
+        <p-dropdown 
+          [(ngModel)]="selectedStatus"
+          [options]="statuses"
+          (onChange)="applyFilters()"
+          placeholder="Filter by Status"
+          styleClass="w-full">
+        </p-dropdown>
+      </div>
+
+      <!-- Department Filter -->
+      <div class="filter-item">
+        <p-dropdown 
+          [(ngModel)]="selectedDepartment"
+          [options]="departments"
+          (onChange)="applyFilters()"
+          placeholder="Filter by Department"
+          styleClass="w-full">
+        </p-dropdown>
+      </div>
+
+      <!-- Clear Filters Button -->
+      <div class="filter-item">
+        <p-button 
+          label="Clear Filters" 
+          icon="pi pi-filter-slash" 
+          (onClick)="clearFilters()"
+          [outlined]="true"
+          styleClass="w-full">
+        </p-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Users Table -->
+  <div class="table-container card">
+    <p-table 
+      [value]="filteredUsers"
+      [rows]="rows"
+      [paginator]="true"
+      [first]="first"
+      [totalRecords]="totalRecords"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [loading]="loading"
+      [sortField]="'firstName'"
+      [sortOrder]="1"
+      responsiveLayout="scroll"
+      styleClass="p-datatable-gridlines"
+      dataKey="id">
+
+      <!-- Table Header -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="firstName">
+            User <p-sortIcon field="firstName"></p-sortIcon>
+          </th>
+          <th pSortableColumn="email">
+            Email <p-sortIcon field="email"></p-sortIcon>
+          </th>
+          <th pSortableColumn="department">
+            Department <p-sortIcon field="department"></p-sortIcon>
+          </th>
+          <th pSortableColumn="role">
+            Role <p-sortIcon field="role"></p-sortIcon>
+          </th>
+          <th pSortableColumn="status">
+            Status <p-sortIcon field="status"></p-sortIcon>
+          </th>
+          <th pSortableColumn="joinDate">
+            Join Date <p-sortIcon field="joinDate"></p-sortIcon>
+          </th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+
+      <!-- Table Body -->
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <!-- User Column -->
+          <td>
+            <div class="user-cell">
+              <div class="user-avatar">{{ user.firstName.charAt(0) }}{{ user.lastName.charAt(0) }}</div>
+              <div class="user-info">
+                <span class="user-name">{{ user.firstName }} {{ user.lastName }}</span>
+                <span class="username">&#64;{{ user.username }}</span>
+              </div>
+            </div>
+          </td>
+
+          <!-- Email -->
+          <td>{{ user.email }}</td>
+
+          <!-- Department -->
+          <td>{{ user.department || 'N/A' }}</td>
+
+          <!-- Role -->
+          <td>
+            <p-tag 
+              [value]="user.role" 
+              [severity]="getRoleSeverity(user.role)">
+            </p-tag>
+          </td>
+
+          <!-- Status -->
+          <td>
+            <p-tag 
+              [value]="user.status" 
+              [severity]="getStatusSeverity(user.status)">
+            </p-tag>
+          </td>
+
+          <!-- Join Date -->
+          <td>{{ formatDate(user.joinDate) }}</td>
+
+          <!-- Actions -->
+          <td>
+            <div class="action-buttons">
+              <p-button 
+                icon="pi pi-trash" 
+                [rounded]="true"
+                [text]="true"
+                severity="danger"
+                (onClick)="deleteUser(user)"
+                pTooltip="Delete User"
+                tooltipPosition="top">
+              </p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+
+      <!-- Empty Message -->
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7" class="text-center empty-message">
+            <i class="pi pi-inbox"></i>
+            <p>No users found</p>
+            <p class="hint">Try adjusting your filters or search term</p>
+          </td>
+        </tr>
+      </ng-template>
+
+      <!-- Loading -->
+      <ng-template pTemplate="loadingbody">
+        <tr>
+          <td colspan="7">Loading users...</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <!-- Summary Footer -->
+  <div class="summary-footer">
+    <span>Showing {{ filteredUsers.length }} of {{ users.length }} users</span>
+  </div>
+</div>
+
+<!-- Toast for notifications (with undo) -->
+<p-toast position="bottom-right">
+  <ng-template let-message pTemplate="message">
+    <div class="toast-content">
+      <div class="toast-icon">
+        <i [class]="'pi ' + (message.severity === 'success' ? 'pi-check-circle' : message.severity === 'error' ? 'pi-times-circle' : 'pi-info-circle')"></i>
+      </div>
+      <div class="toast-details">
+        <span class="toast-summary">{{ message.summary }}</span>
+        <span class="toast-detail">{{ message.detail }}</span>
+      </div>
+      <div class="toast-action" *ngIf="message.key === 'undo'">
+        <p-button 
+          label="Undo" 
+          [text]="true"
+          size="small"
+          (onClick)="undoDelete()">
+        </p-button>
+      </div>
+    </div>
+  </ng-template>
+</p-toast>
+
+<!-- Confirmation Dialog -->
+<p-confirmDialog></p-confirmDialog>
+
+
